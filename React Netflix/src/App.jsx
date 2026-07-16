@@ -15,11 +15,9 @@ function App(){
         <input type="text" value={username} onChange={handlenameChange} placeholder="Enter your Username"/>
         <label>Email ID</label>
         <input type="email" value={email} onChange={handleemailChange} placeholder="Enter your Email id"/>
-
-
       </form>
     </div>
-    
+
   );
 }
 
