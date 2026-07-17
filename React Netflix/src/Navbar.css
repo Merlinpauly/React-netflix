@@ -1,0 +1,30 @@
+nav{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 15px 50px;
+     background-color: black;
+     color: white;
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+    z-index: 100;
+}
+.logo-img{
+    width:120px;
+    height:auto;
+
+}
+.right{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    font-size:25px;
+    cursor: pointer;
+}
+.right svg:hover{
+    color:#e50914;
+    transform:scale(1.1);
+    transition:0.2s;
+}

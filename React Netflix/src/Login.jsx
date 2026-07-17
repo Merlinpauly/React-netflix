@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import "./Login.css";
 function App() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
