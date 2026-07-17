@@ -3,7 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 97vh;
+  height: 97.7vh;
 }
 .Container{  
     height: 98vh;
@@ -29,7 +29,7 @@ body {
 .input-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 label {
     color: white;

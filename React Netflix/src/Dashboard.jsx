@@ -1,7 +1,10 @@
 function Dashboard() {
   return (
-    <div>
-      <h1>Welcome to Dashboard</h1>
+    <div style={{backgroundColor:"black"}}>
+      <h1 style={{color: "#2c3e50", 
+            textAlign:"center",
+            
+            }}> Welcome to Dashboard</h1>
     </div>
   );
 }
