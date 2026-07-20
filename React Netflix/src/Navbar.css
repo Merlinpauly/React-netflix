@@ -3,7 +3,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background-color: black;
+    background-color: #141414;
     color: white;
 
     position: fixed;
@@ -13,6 +13,7 @@ nav{
     box-sizing: border-box;
 
     z-index: 100;
+    
 }
 .logo-img{
     width:120px;

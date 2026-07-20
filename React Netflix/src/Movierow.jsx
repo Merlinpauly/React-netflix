@@ -1,33 +1,35 @@
-import { useState, useEffect } from "react";
+import { useRef } from "react";
 import Moviecard from "./Moviecard";
 import "./Dashboard.css";
-function Movierow({title}) {
-    const [movies, setMovies] = useState([]);
-    useEffect(() => {
-        async function getMovies() {
-            const response = await fetch("https://jsonfakery.com/movies/paginated");
-            const data = await response.json();
-            console.log(data.data[0]);
-            setMovies(data.data);// inside our api another data will come . because we call data.data
-        }
-        getMovies();
 
-
-    }, []);
+function Movierow({ title, movies }) {
+    const rowref = useRef();
+    function scrollLeft() {
+        rowref.current.scrollLeft -= 500;
+    }
+    function scrollRight() {
+        rowref.current.scrollLeft += 500;
+    }
     return (
         <div>
-            <h2 style={{color:"white"}}>{title}</h2>
+            <h2 style={{ color: "white", marginLeft: "36px", fontSize:"30px"}}>{title}</h2>
+            <div className="movie-row-container">
+                <button onClick={scrollLeft} className="scroll-btn"> ◀ </button>
 
-            <div className="movie-row">
-                {movies.map((movie) => (
-                    <Moviecard
-                        key={movie.id}
-                        movie={movie}
-                    />
-                ))}
+                <div className="movie-row" ref={rowref} >
+                    {movies.map((movie) => (
+                        <Moviecard
+                            key={movie.id}
+                            movie={movie}
+                        />
+                    ))}
+                </div>
+                <button onClick={scrollRight} className="scroll-btn">
+                    ▶
+                </button>
             </div>
-
         </div>
     );
 }
+
 export default Movierow;
