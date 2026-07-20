@@ -1,13 +1,14 @@
 import "./Dashboard.css";
 import Navbar from "./Navbar";
 import Banner from "./Banner";
-import Moviecard from "./Moviecard";
+import Movierow from "./Movierow"
 function Dashboard() {
   return (
     < >
       <Navbar />
       <Banner />
-      <Moviecard/>
+      <Movierow/>
+      
     </>
   );
 }
