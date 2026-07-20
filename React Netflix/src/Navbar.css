@@ -1,14 +1,17 @@
 nav{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 15px 50px;
-     background-color: black;
-     color: white;
-     position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: black;
+    color: white;
+
+    position: fixed;
     top: 0;
     left: 0;
-    width: 95%;
+    width: 100%;
+    box-sizing: border-box;
+
     z-index: 100;
 }
 .logo-img{
