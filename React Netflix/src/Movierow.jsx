@@ -12,7 +12,7 @@ function Movierow({ title, movies }) {
     }
     return (
         <div>
-            <h2 style={{ color: "white", marginLeft: "36px", fontSize:"30px"}}>{title}</h2>
+            <h2 style={{  marginLeft: "36px", fontSize:"30px"}}>{title}</h2>
             <div className="movie-row-container">
                 <button onClick={scrollLeft} className="scroll-btn"> ◀ </button>
 

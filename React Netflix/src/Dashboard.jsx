@@ -7,6 +7,7 @@ import Movierow from "./Movierow";
 function Dashboard() {
 
   const [movies, setMovies] = useState([]);
+  const [darkmode, setDarkmode] = useState(true);
 
   useEffect(() => {
     async function getMovies() {
@@ -24,10 +25,23 @@ function Dashboard() {
 
   }, []);
   console.log(movies);
+  useEffect(() => {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      setDarkmode(true);
+    }
+
+    if (savedTheme === "light") {
+      setDarkmode(false);
+    }
+
+  }, []);
 
   return (
-    <>
-      <Navbar />
+    <div className={darkmode ? "dark-theme" : "light-theme"}>
+      <Navbar darkmode={darkmode} setDarkmode={setDarkmode} />
 
       <Banner movies={movies} />
 
@@ -40,7 +54,7 @@ function Dashboard() {
         title="Top 10 Movies"
         movies={movies}
       />
-    </>
+    </div>
   );
 }
 
