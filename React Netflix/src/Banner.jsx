@@ -1,6 +1,9 @@
 import "./Dashboard.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Trailermodel from "./Trailermodel";
 function Banner({ movies }) {
+    const [showtrailer, setShowtrailer] = useState(false);
     const bannerMovie = movies[0];
     const navigate = useNavigate();
     if (!bannerMovie) {
@@ -8,13 +11,13 @@ function Banner({ movies }) {
     }
     function handleMoreInfo() {
 
-    localStorage.setItem(
-        "clickedMovie",
-        JSON.stringify(bannerMovie)
-    );
+        localStorage.setItem(
+            "clickedMovie",
+            JSON.stringify(bannerMovie)
+        );
 
-    navigate("/movie");
-}
+        navigate("/movie");
+    }
     return (
         <div className="banner" style={{
             backgroundImage: `
@@ -27,11 +30,13 @@ function Banner({ movies }) {
             <div className="banner-content">
                 <h2 className="banner-title">{bannerMovie.original_title}</h2>
                 <div className="banner-buttons">
-                    <button className="play-btn">▶ Play</button>
+                    <button className="play-btn" onClick={() => setShowtrailer(true)}>▶ Play</button>
                     <button className="info-btn" onClick={handleMoreInfo}> ⓘ More Info</button>
                 </div>
             </div>
+            <Trailermodel onClose={() => setShowtrailer(false)} show={showtrailer} />
         </div>
+        
     );
 }
 export default Banner;

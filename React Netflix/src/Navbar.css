@@ -1,9 +1,10 @@
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background-color: rgba(0, 0, 0, .4);;
+    background-color: rgba(0, 0, 0, .4);
+    ;
     color: white;
 
     position: fixed;
@@ -13,22 +14,89 @@ nav{
     box-sizing: border-box;
 
     z-index: 100;
-    
-}
-.logo-img{
-    width:120px;
-    height:auto;
 
 }
-.right{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    font-size:25px;
+
+.logo-img {
+    width: 120px;
+    height: auto;
+
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    font-size: 25px;
     cursor: pointer;
 }
-.right svg:hover{
-    color:#e50914;
-    transform:scale(1.1);
-    transition:0.2s;
+
+.right svg:hover {
+    color: #e50914;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.language-select {
+    height: 35px;
+    background-color: white;
+    width: 120px;
+    border-radius: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    border-radius: 15px;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+.search-bar svg {
+    color: #999;
+
+}
+
+.search-bar input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+
+}
+.profile-menu{
+    position:relative;
+}
+
+.profile-icon{
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+.dropdown{
+    position:absolute;
+    top:50px;
+    right:0;
+    background:#1f1f1f;
+    color:white;
+    width:180px;
+    border-radius:6px;
+    box-shadow:0 5px 15px rgba(0,0,0,.4);
+    overflow:hidden;
+    z-index:1000;
+}
+
+.dropdown p{
+    padding:12px 15px;
+    margin:0;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.dropdown p:hover{
+    background:#333;
 }

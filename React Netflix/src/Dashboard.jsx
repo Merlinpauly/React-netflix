@@ -8,6 +8,8 @@ function Dashboard() {
 
   const [movies, setMovies] = useState([]);
   const [darkmode, setDarkmode] = useState(true);
+  const [language, setLanguage] = useState("all");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function getMovies() {
@@ -38,22 +40,39 @@ function Dashboard() {
     }
 
   }, []);
+  const filteredMovies = movies.filter((movie) => {
+    const languageMatch = language === "all" || movie.original_language === language;
+    const searchMatch = movie.original_title.toLowerCase().includes(search.toLowerCase());
+    return languageMatch && searchMatch;
+  });
+
+  // const filteredMovies = language === "all" ? movies : movies.filter((movie) => {
+  //        return movie.original_language === language;
+  // });
 
   return (
     <div className={darkmode ? "dark-theme" : "light-theme"}>
-      <Navbar darkmode={darkmode} setDarkmode={setDarkmode} />
+      <Navbar darkmode={darkmode} setDarkmode={setDarkmode}
+              language = {language} setLanguage={setLanguage}
+              search={search} setSearch={setSearch} />
 
-      <Banner movies={movies} />
+      <Banner movies={filteredMovies} />
 
+      {
+  filteredMovies.length > 0 && (
+    <>
       <Movierow
         title="Trending Now"
-        movies={movies}
+        movies={filteredMovies}
       />
 
       <Movierow
         title="Top 10 Movies"
-        movies={movies}
+        movies={filteredMovies}
       />
+    </>
+  )
+}
     </div>
   );
 }

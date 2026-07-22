@@ -2,7 +2,9 @@ import "./Dashboard.css";
 import logo from "./assets/Netflix-Logo.png";
 import "./Navbar.css";
 import { useState } from "react";
+import Trailermodel from "./Trailermodel";
 function Moviedetails() {
+    const [showTrailer, setShowTrailer] = useState(false);
     const movie = JSON.parse(
         localStorage.getItem("clickedMovie")
     );
@@ -17,7 +19,7 @@ function Moviedetails() {
             <div className="movie-info">
                 <h1 className="movie-title">{movie.original_title}</h1>
                 <div className="movie-buttons">
-                    <button className="watch-btn">Watch Now</button>
+                    <button className="watch-btn" onClick={() => setShowTrailer(true)}>Watch Now</button>
                     <button className="more-info-btn" onClick={handleMoreInfo}> {showInfo ? "Hide Info" : "More Info"}
 
                     </button>
@@ -46,6 +48,7 @@ function Moviedetails() {
                     )
                 }
             </div>
+            <Trailermodel onClose={() => setShowTrailer(false)} show={showTrailer} />
 
         </div>
 
