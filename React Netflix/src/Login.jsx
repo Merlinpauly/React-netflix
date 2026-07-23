@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import "./Login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import logo from "./assets/Netflix-Logo.png";
+
 function App() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -179,8 +181,15 @@ function App() {
 
 
   return (
+    
     <div className="Container">
-      <div className="form">
+      <img
+      src={logo}
+      alt="Netflix Logo"
+      className="login-logo"
+    />
+      
+      <div className="form"> 
         {
           showtoast && (
             <div className="toast">
