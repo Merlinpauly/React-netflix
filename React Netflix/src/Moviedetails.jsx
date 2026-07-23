@@ -3,6 +3,8 @@ import logo from "./assets/Netflix-Logo.png";
 import "./Navbar.css";
 import { useState } from "react";
 import Trailermodel from "./Trailermodel";
+import Logo from "./Logo";
+import Navbar from "./Navbar";
 function Moviedetails() {
     const [showTrailer, setShowTrailer] = useState(false);
     const movie = JSON.parse(
@@ -15,6 +17,7 @@ function Moviedetails() {
     }
     return (
         <div className="movie-details">
+            <Navbar />
             <img src={movie.backdrop_path} alt={movie.original_title} className="movie-poster" />
             <div className="movie-info">
                 <h1 className="movie-title">{movie.original_title}</h1>

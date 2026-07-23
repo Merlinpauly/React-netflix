@@ -1,10 +1,11 @@
 import "./Navbar.css";
-import logo from "./assets/Netflix-Logo.png";
+import Logo from "./Logo";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSearch }) {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
@@ -26,13 +27,16 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
     localStorage.removeItem("loggedInUser");
     navigate("/");
 }
+    function handleProfile(){
+        navigate("/profile")
+    }
 
 
 
     return (
         <nav>
             <div className="logo">
-                <img src={logo} alt="Netflix Logo" className="logo-img" />
+                <Logo />
             </div>
             <div className="right">
                 <div className="search-bar">
@@ -69,7 +73,7 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
                         showMenu && (
                             <div className="dropdown">
 
-                                <p>My Profile</p>
+                                <p onClick={handleProfile}>My Profile</p>
 
                                 <p>Settings</p>
 
