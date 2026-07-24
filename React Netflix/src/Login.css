@@ -49,10 +49,11 @@ body::-webkit-scrollbar{
     color: white;
     margin-bottom: 8px;
 }
-.login-form input {
+.login-form .input-group input  {
     padding: 12px;
     border-radius: 5px;
     border: none;
+    width: 94%;
 }
 .login-form button{
       width: 400px;
@@ -95,20 +96,22 @@ body::-webkit-scrollbar{
     color: white;
     margin-bottom: 8px;
 }
-.signup-form input{
+.signup-form .input-group input{
     padding: 12px;
     border-radius: 5px;
     border: none;
+    width: 88%;
 }
 .signup-form h1{
   text-align: center;
   font-weight: bold;
   color: white;
 }
-.signup-form select{
+.signup-form  .input-group select{
     padding: 12px;
     border-radius: 5px;
     border: none;
+    width: 95%;
 }
 .signup-form button{
     width: 100%;

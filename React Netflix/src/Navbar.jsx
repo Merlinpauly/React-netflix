@@ -30,11 +30,14 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
     function handleProfile(){
         navigate("/profile")
     }
+    function handlePassword(){
+        navigate("/password")
+    }
 
 
 
     return (
-        <nav>
+        <nav className={darkmode ? "navbar-dark" : "navbar-light"}>
             <div className="logo">
                 <Logo />
             </div>
@@ -75,7 +78,7 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
 
                                 <p onClick={handleProfile}>My Profile</p>
 
-                                <p>Settings</p>
+                                <p onClick={handlePassword}>Forgot Password</p>
 
                                <p onClick={handleLogout}>Logout</p>
 

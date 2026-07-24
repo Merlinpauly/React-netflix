@@ -1,5 +1,6 @@
 import "./Profile.css";
 import { useState } from "react";
+import Logo from "./Logo"
 function Profile() {
     const user = JSON.parse(localStorage.getItem("netflixUser"));
     console.log(user);
@@ -7,16 +8,48 @@ function Profile() {
     const [name, setName] = useState(user.name);
     const [fullname, setFullname] = useState(user.fullname);
     const [email, setEmail] = useState(user.email);
+    const [password , setPassword] = useState(user.password);
     const [phone, setPhone] = useState(user.phone);
     const [gender, setGender] = useState(user.gender);
+    const [showToast, setShowToast] = useState(false);
 
-    
+    function handleSave() {
+
+
+        const updatedUser = {
+            name: name,
+            fullname: fullname,
+            email: email,
+            password: password,
+            phone: phone,
+            gender: gender
+        };
+        localStorage.setItem(
+            "netflixUser",
+            JSON.stringify(updatedUser)
+        );
+        setEditMode(false);
+        setShowToast(true);
+
+        setTimeout(() => {
+            setShowToast(false);
+        }, 2000);
+
+    }
+
+
+
 
 
     return (
         <div className="profile-page">
+           
+            
 
             <div className="profile-card">
+                <Logo/> 
+                
+
 
                 <div className="profile-image">
                     <img
@@ -32,35 +65,72 @@ function Profile() {
 
                         <div className="profile-info">
 
-                            <label>Name</label>
+                            <div className="form-row">
 
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <label>FullName</label>
+                                <div className="input-group">
+                                    <label>Name</label>
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                    />
+                                </div>
 
-                            <input
-                                type="text"
-                                value={fullname}
-                                onChange={(e) => setFullname(e.target.value)}
-                            />
-                            <label>Email</label>
+                                <div className="input-group">
+                                    <label>Full Name</label>
+                                    <input
+                                        type="text"
+                                        value={fullname}
+                                        onChange={(e) => setFullname(e.target.value)}
+                                    />
+                                </div>
 
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <label>Phone</label>
+                            </div>
 
-                            <input
-                                type="phone"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
-                            />
-                            
+                            <div className="form-row">
+
+                                <div className="input-group">
+                                    <label>Email</label>
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                </div>
+                                <div className="input-group">
+                                    <label>Phone Number</label>
+                                    <input
+                                        type="text"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                    />
+                                </div>
+
+
+
+                            </div>
+
+                            <div className="form-row">
+
+
+
+                                <div className="input-group">
+                                    <label>Gender</label>
+
+                                    <select
+                                        value={gender}
+                                        onChange={(e) => setGender(e.target.value)}
+                                    >
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <button onClick={handleSave}>Save Changes</button>
 
                         </div>
 
@@ -87,17 +157,27 @@ function Profile() {
                             <p>
                                 <strong>Gender :</strong> {user.gender}
                             </p>
+                            <button onClick={() => setEditMode(true)}>
+                                Edit Profile
+                            </button>
 
                         </div>
+
 
                     )
                 }
 
-                <button onClick={() => setEditMode(true)}>
-                    Edit Profile
-                </button>
+
 
             </div>
+            {
+                showToast && (
+                    <div className="toast">
+                        ✅ Profile Updated Successfully
+                        <button className="close-button" onClick={() => setShowToast(false)}>X</button>
+                    </div>
+                )
+            }
 
         </div>
     );

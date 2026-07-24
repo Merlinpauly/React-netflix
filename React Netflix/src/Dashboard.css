@@ -21,9 +21,13 @@ body {
 }
 
 .banner-title {
-    font-size: 60px;
+    font-size: 57px;
     font-weight: bold;
 }
+.banner-overview{
+    font-size: 15px;
+}
+    
 
 .banner-buttons {
     display: flex;
@@ -152,7 +156,7 @@ body {
 }
 
 .movie-title {
-    color: grey;
+    color: red;
     font-size: 50px;
     font-weight: bolder;
 
@@ -234,5 +238,29 @@ body {
     color:white;
 
     cursor:pointer;
+
+}
+.sub-btn {
+    background: red;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 12px 28px;
+}
+
+.subscribed-btn {
+    background: gray;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 12px 28px;
+}
+.subscribe-btn{
+    position: relative;
+    top: 35px;
+    left: 45px;
+
 
 }

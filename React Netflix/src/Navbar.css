@@ -16,6 +16,15 @@ nav {
     z-index: 100;
 
 }
+.navbar-dark{
+    background-color:rgba(0, 0, 0, .4);;
+    color:white;
+}
+
+.navbar-light{
+    background-color:rgba(255, 255, 255, 0.2);;
+    color:black;
+}
 
 .logo-img {
     width: 120px;
@@ -83,7 +92,7 @@ nav {
     right:0;
     background:#1f1f1f;
     color:white;
-    width:180px;
+    width:200px;
     border-radius:6px;
     box-shadow:0 5px 15px rgba(0,0,0,.4);
     overflow:hidden;

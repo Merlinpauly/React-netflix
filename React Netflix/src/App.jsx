@@ -3,6 +3,7 @@ import Login from "./Login";
 import Dashboard from "./Dashboard";
 import Moviedetails from "./Moviedetails";
 import Profile from "./Profile";
+import Password from "./Password";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         } />
       <Route path="/movie" element={<Moviedetails />} />  
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/password" element={<Password/>}/>
     </Routes>
   );
 }
