@@ -80,18 +80,28 @@ function App() {
       setPasswordError("Password is incorrect")
       return;
     }
-    const savedUser = JSON.parse(
-      localStorage.getItem("netflixUser")
-    );
-    if (!savedUser) {
-      setEmailError("No account found. Please sign up first.");
-      return;
-    }
-    if (savedUser.email === email && savedUser.password === password) {
+    const users = JSON.parse(
+      localStorage.getItem("netflixUsers")
+    ) || [];
+    const foundUser = users.find((user) => {
+      return (
+        user.email === email &&
+        user.password === password
+      );
+    });
+    if (foundUser) {
+
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify(foundUser)
+      );
+
       navigate("/dashboard");
-    }
-    else {
-      setPasswordError("Invalid Email and Password")
+
+    } else {
+
+      setPasswordError("Invalid Email or Password");
+
     }
 
 
@@ -154,9 +164,14 @@ function App() {
       phone: phone,
       gender: gender
     };
+
+    const users = JSON.parse(
+      localStorage.getItem("netflixUsers")
+    ) || [];
+    users.push(user);
     localStorage.setItem(
-      "netflixUser",
-      JSON.stringify(user)
+      "netflixUsers",
+      JSON.stringify(users)
     );
 
     setLoading(true);
@@ -181,15 +196,15 @@ function App() {
 
 
   return (
-    
+
     <div className="Container">
       <img
-      src={logo}
-      alt="Netflix Logo"
-      className="login-logo"
-    />
-      
-      <div className="form"> 
+        src={logo}
+        alt="Netflix Logo"
+        className="login-logo"
+      />
+
+      <div className="form">
         {
           showtoast && (
             <div className="toast">
@@ -244,7 +259,7 @@ function App() {
               </div>
               <div className="form-row">
                 <div className="input-group">
-                  <label>Phonenumber</label>
+                  <label>Phone Number</label>
                   <input type="text" placeholder="Enter your phone number" value={phone} onChange={handlePhoneChange} />
                   <p className="error">{phoneError}</p>
                 </div>
@@ -252,7 +267,7 @@ function App() {
                   <label>Gender</label>
                   <select value={gender} onChange={handleGenderChange}>
 
-                    <option value="all genders">All Genders</option>
+                    <option value="select Genders">Select Genders</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>

@@ -53,26 +53,32 @@ function Dashboard() {
   return (
     <div className={darkmode ? "dark-theme" : "light-theme"}>
       <Navbar darkmode={darkmode} setDarkmode={setDarkmode}
-              language = {language} setLanguage={setLanguage}
-              search={search} setSearch={setSearch} />
+        language={language} setLanguage={setLanguage}
+        search={search} setSearch={setSearch} />
 
       <Banner movies={filteredMovies} />
 
       {
-  filteredMovies.length > 0 && (
-    <>
-      <Movierow
-        title="Trending Now"
-        movies={filteredMovies}
-      />
+        filteredMovies.length > 0 && (
+          <>
+            <Movierow
+              title="Trending Now"
+              movies={filteredMovies}
+            />
 
-      <Movierow
-        title="Top 10 Movies"
-        movies={filteredMovies}
-      />
-    </>
-  )
-}
+            <Movierow
+              title="Top 10 Movies"
+              movies={filteredMovies}
+            />
+            <Movierow
+              title="English Movies"
+              movies={filteredMovies}
+              cardWidth="300px"
+              cardHeight="200px"
+            />
+          </>
+        )
+      }
     </div>
   );
 }

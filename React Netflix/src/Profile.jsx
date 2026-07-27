@@ -2,39 +2,64 @@ import "./Profile.css";
 import { useState } from "react";
 import Logo from "./Logo"
 function Profile() {
-    const user = JSON.parse(localStorage.getItem("netflixUser"));
+    const user = JSON.parse(
+        localStorage.getItem("loggedInUser")
+    );
     console.log(user);
     const [editMode, setEditMode] = useState(false);
     const [name, setName] = useState(user.name);
     const [fullname, setFullname] = useState(user.fullname);
     const [email, setEmail] = useState(user.email);
-    const [password , setPassword] = useState(user.password);
+    const [password, setPassword] = useState(user.password);
     const [phone, setPhone] = useState(user.phone);
     const [gender, setGender] = useState(user.gender);
     const [showToast, setShowToast] = useState(false);
 
     function handleSave() {
 
-
         const updatedUser = {
-            name: name,
-            fullname: fullname,
-            email: email,
-            password: password,
-            phone: phone,
-            gender: gender
+            name,
+            fullname,
+            email,
+            password,
+            phone,
+            gender
         };
+
+        // Update logged-in user
         localStorage.setItem(
-            "netflixUser",
+            "loggedInUser",
             JSON.stringify(updatedUser)
         );
+
+          // Get all users
+        const users = JSON.parse(
+            localStorage.getItem("netflixUsers")
+        ) || [];
+
+          // Replace only the edited user
+        const updatedUsers = users.map((user) => {
+
+            if (user.email === updatedUser.email) {
+                return updatedUser;
+            }
+
+            return user;
+
+        });
+
+        // Save updated users
+        localStorage.setItem(
+            "netflixUsers",
+            JSON.stringify(updatedUsers)
+        );
+
         setEditMode(false);
         setShowToast(true);
 
         setTimeout(() => {
             setShowToast(false);
         }, 2000);
-
     }
 
 
@@ -43,12 +68,12 @@ function Profile() {
 
     return (
         <div className="profile-page">
-           
-            
+
+
 
             <div className="profile-card">
-                <Logo/> 
-                
+                <Logo />
+
 
 
                 <div className="profile-image">

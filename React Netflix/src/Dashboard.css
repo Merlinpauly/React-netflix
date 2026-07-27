@@ -19,6 +19,27 @@ body {
     color: white;
 
 }
+.prev-btn,
+.next-btn{
+     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    background: rgba(0, 0, 0, .5);
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 10;
+}
+
+.prev-btn{
+    left:0px;
+}
+
+.next-btn{
+    right:0px;
+}
 
 .banner-title {
     font-size: 57px;
@@ -85,6 +106,7 @@ body {
     transition: 0.3s;
 }
 
+
 .movie-card:hover {
     transform: scale(1.08);
 }
@@ -92,6 +114,9 @@ body {
 .movie-card img {
     width: 100%;
     border-radius: 10px;
+    height:100%;
+    object-fit: fill;
+
 }
 
 .movie-card h3 {
