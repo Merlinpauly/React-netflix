@@ -1,10 +1,11 @@
-import "./Dashboard.css";
-import logo from "./assets/Netflix-Logo.png";
-import "./Navbar.css";
+import "../styles/Dashboard.css";
+import logo from "../assets/Netflix-Logo.png";
+import "../styles/Navbar.css";
 import { useState } from "react";
-import Trailermodel from "./Trailermodel";
-import Logo from "./Logo";
-import Navbar from "./Navbar";
+import Trailermodel from "../components/Trailermodel";
+import Logo from "../components/Logo";
+import Navbar from "../components/Navbar";
+
 function Moviedetails() {
     const [showTrailer, setShowTrailer] = useState(false);
     const movie = JSON.parse(

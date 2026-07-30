@@ -1,6 +1,7 @@
-import "./Profile.css";
+import "../styles/Profile.css";
 import { useState } from "react";
-import Logo from "./Logo"
+import Logo from "../components/Logo"
+// "./pages/Password"
 function Profile() {
     const user = JSON.parse(
         localStorage.getItem("loggedInUser")

@@ -1,4 +1,4 @@
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 import { useNavigate } from "react-router-dom";
 function Moviecard({  movie,cardWidth,cardHeight }) {
   const navigate = useNavigate();

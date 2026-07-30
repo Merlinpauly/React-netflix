@@ -1,6 +1,6 @@
-import logo from "./assets/Netflix-Logo.png";
+import logo from "../assets/Netflix-Logo.png";
 import { useNavigate } from "react-router-dom";
-import "./Logo.css";
+import "../styles/Logo.css";
 
 function Logo() {
     const navigate = useNavigate();

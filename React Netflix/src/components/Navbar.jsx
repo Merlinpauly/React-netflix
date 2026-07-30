@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "../styles/Navbar.css";
 import Logo from "./Logo";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSearch }) {
+function Navbar({ darkmode, setDarkmode, language, setLanguage, search, setSearch }) {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
     function toggleTheme() {
@@ -24,13 +24,13 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
         setShowMenu(!showMenu);
     }
     function handleLogout() {
-    localStorage.removeItem("loggedInUser");
-    navigate("/");
-}
-    function handleProfile(){
+        localStorage.removeItem("loggedInUser");
+        navigate("/");
+    }
+    function handleProfile() {
         navigate("/profile")
     }
-    function handlePassword(){
+    function handlePassword() {
         navigate("/password")
     }
 
@@ -46,12 +46,12 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
                     <input type="text" placeholder="Search movies..." value={search} onChange={(e) => setSearch(e.target.value)} />
                     <FaSearch />
                 </div>
-                <select value={language} onChange={(e) => setLanguage(e.target.value) } className="language-select">
+                <select value={language} onChange={(e) => setLanguage(e.target.value)} className="language-select">
                     <option value="all">All Languages</option>
                     <option value="en">English</option>
                     <option value="hi">Hindi</option>
                 </select>
-                
+
                 {
                     darkmode ?
 
@@ -80,7 +80,7 @@ function Navbar({ darkmode, setDarkmode  , language, setLanguage, search, setSea
 
                                 <p onClick={handlePassword}>Forgot Password</p>
 
-                               <p onClick={handleLogout}>Logout</p>
+                                <p onClick={handleLogout}>Logout</p>
 
                             </div>
                         )

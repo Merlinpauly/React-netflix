@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import "./Dashboard.css";
-import Navbar from "./Navbar";
-import Banner from "./Banner";
-import Movierow from "./Movierow";
+import "../styles/Dashboard.css";
+import Navbar from "../components/Navbar";
+import Banner from "../components/Banner"; 
+import Movierow from "../components/Movierow";
+// "./pages/Password"
 
 function Dashboard() {
 

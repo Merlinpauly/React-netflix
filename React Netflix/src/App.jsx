@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
-import Moviedetails from "./Moviedetails";
-import Profile from "./Profile";
-import Password from "./Password";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Moviedetails from "./pages/Moviedetails";
+import Password from "./pages/Password";
 
 
 function App() {

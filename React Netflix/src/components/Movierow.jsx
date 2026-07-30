@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Moviecard from "./Moviecard";
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 
 function Movierow({ title, movies, cardWidth, cardHeight }) {
     const rowref = useRef();

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import "./Login.css";
+import "../styles/Login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import logo from "./assets/Netflix-Logo.png";
+import logo from "../assets/Netflix-Logo.png";
+
 
 function App() {
   const [email, setEmail] = useState("");
@@ -220,12 +221,12 @@ function App() {
               <h1>Signup Form</h1>
               <div className="form-row">
                 <div className="input-group">
-                  <label>Name</label>
+                  <label> First Name</label>
                   <input type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} />
                   <p className="error">{nameError}</p>
                 </div>
                 <div className="input-group">
-                  <label>Full Name</label>
+                  <label>Last Name</label>
                   <input type="text" placeholder="Enter your full name" value={fullname} onChange={handleFullnameChange} />
                   <p className="error">{fullnameError}</p>
                 </div>
