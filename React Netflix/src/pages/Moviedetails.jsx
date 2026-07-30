@@ -1,6 +1,6 @@
 import "../styles/Dashboard.css";
 import logo from "../assets/Netflix-Logo.png";
-import "../styles/Navbar.css";
+import "../styles/Dashboard.css";
 import { useState } from "react";
 import Trailermodel from "../components/Trailermodel";
 import Logo from "../components/Logo";

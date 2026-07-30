@@ -1,4 +1,4 @@
-import "../styles/Profile.css";
+import "../styles/Dashboard.css";
 import { useState } from "react";
 import Logo from "../components/Logo"
 // "./pages/Password"

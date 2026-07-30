@@ -1,4 +1,4 @@
-import "../styles/Navbar.css";
+import "../styles/Dashboard.css";
 import Logo from "./Logo";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";

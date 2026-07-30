@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import "../styles/Login.css";
+import "../styles/Dashboard.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "../assets/Netflix-Logo.png";
 
